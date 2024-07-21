@@ -7,12 +7,19 @@ const models = initModels(db_food_ordering_system_orm);
 export const likeRestaurant = async (req, res) => {
     try {
         const { user_id, res_id } = req.body;
+        const existingLike = await models.like_res.findOne({
+            where: { user_id, res_id }
+        });
+        if (existingLike) {
+            return responseData(400, "User has already liked this restaurant", null, res);
+        }
         const newLike = await models.like_res.create({ user_id, res_id });
         responseData(201, "Restaurant liked successfully", newLike, res);
     } catch (error) {
         responseData(500, "Error liking restaurant", error.message, res);
     }
 };
+
 
 export const unlikeRestaurant = async (req, res) => {
     try {

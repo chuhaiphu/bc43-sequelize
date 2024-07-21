@@ -17,11 +17,12 @@ Content-Type: application/json
   "res_id": 2
 }
 
-### Lấy danh sách like theo nàh hàng
+### Lấy danh sách like theo nhà hàng
 GET http://localhost:8080/like-res/restaurant/2
 
 ### Lấy danh sách like theo user
 GET http://localhost:8080/like-res/user/1
+
 
 
 ### Xử lý rating nhà hàng
@@ -35,7 +36,7 @@ Content-Type: application/json
 }
 
 ### Lấy danh sách rating theo nhà hàng
-GET http://localhost:8080/rate-res/restaurant/2
+GET http://localhost:8080/rate-res/restaurant/1
 
 ### Lấy danh sách rating theo user
 GET http://localhost:8080/rate-res/user/1
