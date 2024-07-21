@@ -1,0 +1,52 @@
+### Xử lý like nhà hàng
+### Like a restaurant
+POST http://localhost:8080/like-res/like
+Content-Type: application/json
+
+{
+  "user_id": 1,
+  "res_id": 2
+}
+
+### Unlike a restaurant
+POST http://localhost:8080/like-res/unlike
+Content-Type: application/json
+
+{
+  "user_id": 1,
+  "res_id": 2
+}
+
+### Lấy danh sách like theo nàh hàng
+GET http://localhost:8080/like-res/restaurant/2
+
+### Lấy danh sách like theo user
+GET http://localhost:8080/like-res/user/1
+
+
+### Xử lý rating nhà hàng
+POST http://localhost:8080/rate-res/add
+Content-Type: application/json
+
+{
+  "user_id": 1,
+  "res_id": 2,
+  "amount": 4
+}
+
+### Lấy danh sách rating theo nhà hàng
+GET http://localhost:8080/rate-res/restaurant/2
+
+### Lấy danh sách rating theo user
+GET http://localhost:8080/rate-res/user/1
+
+### User tạo order
+POST http://localhost:8080/order/create
+Content-Type: application/json
+
+{
+  "user_id": 1,
+  "food_id": 2,
+  "amount": 2,
+  "code": "ORDER456"
+}
