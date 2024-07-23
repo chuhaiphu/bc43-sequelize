@@ -24,6 +24,12 @@ export const getRatingsByRestaurant = async (req, res) => {
     const { res_id } = req.params;
     const ratings = await models.rate_res.findAll({
       where: { res_id },
+      include: [
+        {
+          model: models.user,
+          as: 'user',
+        }
+      ]
     });
     responseData(200, "Ratings retrieved successfully", ratings, res);
   } catch (error) {
@@ -35,7 +41,13 @@ export const getRatingsByUser = async (req, res) => {
   try {
     const { user_id } = req.params;
     const ratings = await models.rate_res.findAll({
-      where: { user_id }
+      where: { user_id },
+      include: [
+        {
+          model: models.restaurant,
+          as: 're',
+        }
+      ]
     });
     responseData(200, "Ratings retrieved successfully", ratings, res);
   } catch (error) {

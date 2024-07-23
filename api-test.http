@@ -4,7 +4,7 @@ POST http://localhost:8080/like-res/like
 Content-Type: application/json
 
 {
-  "user_id": 1,
+  "user_id": 5,
   "res_id": 2
 }
 

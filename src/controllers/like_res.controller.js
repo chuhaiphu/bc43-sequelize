@@ -42,6 +42,12 @@ export const getLikesByRestaurant = async (req, res) => {
         const { res_id } = req.params;
         const likes = await models.like_res.findAll({
             where: { res_id },
+            include: [
+                {
+                    model: models.user,
+                    as: 'user',
+                }
+            ]
         });
         responseData(200, "Likes retrieved successfully", likes, res);
     } catch (error) {
@@ -54,6 +60,12 @@ export const getLikesByUser = async (req, res) => {
         const { user_id } = req.params;
         const likes = await models.like_res.findAll({
             where: { user_id },
+            include: [
+                {
+                    model: models.restaurant,
+                    as: 're',
+                }
+            ]
         });
         responseData(200, "Likes retrieved successfully", likes, res);
     } catch (error) {
